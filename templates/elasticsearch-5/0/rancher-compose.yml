@@ -1,14 +1,21 @@
 .catalog:
   name: "Elasticsearch"
-  version: "5-rancher1"
+  version: "5.3.0-rancher1"
   description: "Elasticsearch. You know, for search"
-  uuid: elasticsearchfive-jeffk-0
+  uuid: elasticsearchfive-calloes-1
+  questions:
+   - variable: "kibana_port"
+     description: "Port to expose for Kibana"
+     label: "Kibana port:"
+     required: true
+     default: 5601
+     type: "int"
 logstash:
   scale: 1
   start_on_create: true
 logspout:
   start_on_create: true
-elasticsearch-clients:
+elasticsearch-client:
   scale: 1
   start_on_create: true
 kibana:

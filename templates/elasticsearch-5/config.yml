@@ -3,6 +3,6 @@ description: |
   Elasticsearch, you know for search!
 version: 1.0.0.0
 category: ELK
-maintainer: "Jeff Kolb <jeff.kolb@intlfcstone.com>"
+maintainer: "Chris Callanan calloes@gmail.com"
 minimum_rancher_version: v1.2.3
 projectURL: https://www.elastic.co/
