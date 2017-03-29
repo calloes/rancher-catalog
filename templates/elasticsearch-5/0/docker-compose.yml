@@ -1,4 +1,7 @@
 version: '2'
+volumes:
+  esdata1:
+    driver: local
 services:
   logstash:
     image: docker.elastic.co/logstash/logstash:5.3.0
