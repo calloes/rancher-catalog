@@ -1,50 +1,28 @@
 version: '2'
-services:
-  elasticsearch1:
-    image: docker.elastic.co/elasticsearch/elasticsearch:5.3.0
-    container_name: elasticsearch1
-    environment:
-      - cluster.name=docker-cluster
-      - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
-      nofile:
-        soft: 65536
-        hard: 65536
-    mem_limit: 1024
-    cap_add:
-      - IPC_LOCK
-    volumes:
-      - esdata1:/usr/share/elasticsearch/data
-    ports:
-      - 9200:9200
-
-  elasticsearch2:
-    image: docker.elastic.co/elasticsearch/elasticsearch:5.3.0
-    environment:
-      - cluster.name=docker-cluster
-      - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-      - "discovery.zen.ping.unicast.hosts=elasticsearch1"
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
-      nofile:
-        soft: 65536
-        hard: 65536
-    mem_limit: 1024
-    cap_add:
-      - IPC_LOCK
-    volumes:
-      - esdata2:/usr/share/elasticsearch/data
-
 volumes:
-  esdata1:
+  esdata:
     driver: rancher-nfs
-  esdata2:
-    driver: rancher-nfs
+services:
+  elasticsearch:
+    mem_limit: 1073741824
+    cap_add:
+    - IPC_LOCK
+    image: docker.elastic.co/elasticsearch/elasticsearch:5.3.0
+    environment:
+      ES_JAVA_OPTS: -Xms512m -Xmx512m
+      bootstrap.memory_lock: 'true'
+      cluster.name: docker-cluster
+    ulimits:
+      memlock:
+        hard: -1
+        soft: -1
+      nofile:
+        hard: 65536
+        soft: 65536
+    volumes:
+    - esdata1:/usr/share/elasticsearch/data
+    ports:
+    - 9200:9200/tcp
+
+
 
