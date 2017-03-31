@@ -1,9 +1,9 @@
 version: '2'
 volumes:
-  esdata:
+  esdatamasters:
     driver: rancher-nfs
 services:
-  elasticsearch:
+  elasticsearch-masters:
     mem_limit: 1073741824
     cap_add:
     - IPC_LOCK
@@ -12,6 +12,8 @@ services:
       ES_JAVA_OPTS: -Xms512m -Xmx512m
       bootstrap.memory_lock: 'true'
       cluster.name: docker-cluster
+      discovery.zen.minimum_master_nodes: '1'
+      discovery.zen.ping.unicast.hosts: elasticsearch-masters
     ulimits:
       memlock:
         hard: -1
@@ -20,9 +22,11 @@ services:
         hard: 65536
         soft: 65536
     volumes:
-    - esdata:/usr/share/elasticsearch/data
+    - esdatamasters:/usr/share/elasticsearch/data
     ports:
     - 9200:9200/tcp
+    labels:
+      io.rancher.container.hostname_override: container_name
 
 
 
