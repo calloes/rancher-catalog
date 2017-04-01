@@ -1,7 +1,7 @@
 version: '2'
 volumes:
   esdatamasters:
-    driver: rancher-nfs
+    driver: local
 services:
   elasticsearch-masters:
     mem_limit: 1073741824
@@ -14,6 +14,10 @@ services:
       cluster.name: docker-cluster
       discovery.zen.minimum_master_nodes: '1'
       discovery.zen.ping.unicast.hosts: elasticsearch-masters
+      node.max_local_storage_nodes: '3'
+      node.master: 'true'
+      node.data: 'false'
+      node.ingest: 'false'
     ulimits:
       memlock:
         hard: -1
@@ -21,12 +25,23 @@ services:
       nofile:
         hard: 65536
         soft: 65536
+    volumes_from:
+    - elasticmaster-data
     volumes:
-    - esdatamasters:/usr/share/elasticsearch/data
+    - /usr/share/elasticsearch/config
     ports:
     - 9200:9200/tcp
     labels:
       io.rancher.container.hostname_override: container_name
-
+  elasticmaster-data:
+      entrypoint:
+      - /bin/true
+      network_mode: none
+      labels:
+        io.rancher.container.hostname_override: container_name
+        io.rancher.container.start_once: true
+      volumes:
+      - esmasterdata:/usr/share/elasticsearch/data
+      image: alpine:3.4
 
 
