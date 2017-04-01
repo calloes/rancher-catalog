@@ -25,23 +25,24 @@ services:
       nofile:
         hard: 65536
         soft: 65536
-#    volumes_from:
-#    - elasticmaster-data
+    volumes_from:
+    - elasticmaster-data
     volumes:
     - /usr/share/elasticsearch/config
     ports:
     - 9200:9200/tcp
     labels:
       io.rancher.container.hostname_override: container_name
-#  elasticmaster-data:
-#      entrypoint:
-#      - /bin/true
-#      network_mode: none
-#      labels:
-#        io.rancher.container.hostname_override: container_name
-#        io.rancher.container.start_once: true
-#      volumes:
-#      - esdatamaster:/usr/share/elasticsearch/data
-#      image: alpine:3.4
+      io.rancher.sidekicks: elasticmaster-data
+  elasticmaster-data:
+      entrypoint:
+      - /bin/true
+      network_mode: none
+      labels:
+        io.rancher.container.hostname_override: container_name
+        io.rancher.container.start_once: true
+      volumes:
+      - esdatamaster:/usr/share/elasticsearch/data
+      image: alpine:3.4
 
 
