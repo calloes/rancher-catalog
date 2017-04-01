@@ -25,9 +25,9 @@ services:
       nofile:
         hard: 65536
         soft: 65536
-    volumes_from:
+#    volumes_from:
 #    - elasticmaster-data
-#    volumes:
+    volumes:
     - /usr/share/elasticsearch/config
     ports:
     - 9200:9200/tcp
