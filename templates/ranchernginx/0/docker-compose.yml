@@ -1,3 +1,13 @@
 version: '2'
 services:
-  
+  NginX4Rancher:
+    image: artifactory.devops.itaas-cloud.com:6443/docker-local/rancherlab-nginx/latest
+    ports:
+    - 80:80/tcp
+    - 443:443/tcp
+    external_links:
+    - rancher-server
+    labels:
+      io.rancher.container.hostname_override: container_name
+      #io.rancher.sidekicks: 
+      io.rancher.scheduler.global: 'true'
