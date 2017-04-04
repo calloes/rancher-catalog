@@ -34,6 +34,7 @@ services:
     labels:
       io.rancher.container.hostname_override: container_name
       io.rancher.sidekicks: elasticmaster-data
+      io.rancher.scheduler.global: 'true'
   elasticmaster-data:
       entrypoint:
       - /bin/true
