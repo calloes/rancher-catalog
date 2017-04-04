@@ -45,5 +45,89 @@ services:
       volumes:
       - /usr/share/elasticsearch/data
       image: docker.elastic.co/elasticsearch/elasticsearch:5.3.0
+  elasticsearch-data:
+      mem_limit: 1073741824
+      cap_add:
+      - IPC_LOCK
+      image: docker.elastic.co/elasticsearch/elasticsearch:5.3.0
+      environment:
+        ES_JAVA_OPTS: -Xms512m -Xmx512m
+        bootstrap.memory_lock: 'true'
+        cluster.name: docker-cluster
+        discovery.zen.minimum_master_nodes: '2'
+        discovery.zen.ping.unicast.hosts: elasticsearch-masters
+        node.max_local_storage_nodes: '3'
+        node.master: 'false'
+        node.data: 'true'
+        node.ingest: 'false'
+      ulimits:
+        memlock:
+          hard: -1
+          soft: -1
+        nofile:
+          hard: 65536
+          soft: 65536
+      volumes_from:
+      - elasticdata-data
+      volumes:
+      - /usr/share/elasticsearch/config
+      #ports:
+      #- 9200:9200/tcp
+      labels:
+        io.rancher.container.hostname_override: container_name
+        io.rancher.sidekicks: elasticdata-data
+        io.rancher.scheduler.global: 'true'
+  elasticdata-data:
+        entrypoint:
+        - /bin/true
+        network_mode: none
+        labels:
+          io.rancher.container.hostname_override: container_name
+          io.rancher.container.start_once: true
+        volumes:
+        - /usr/share/elasticsearch/data
+        image: docker.elastic.co/elasticsearch/elasticsearch:5.3.0
+  elasticsearch-ingest:
+      mem_limit: 1073741824
+      cap_add:
+      - IPC_LOCK
+      image: docker.elastic.co/elasticsearch/elasticsearch:5.3.0
+      environment:
+        ES_JAVA_OPTS: -Xms512m -Xmx512m
+        bootstrap.memory_lock: 'true'
+        cluster.name: docker-cluster
+        discovery.zen.minimum_master_nodes: '2'
+        discovery.zen.ping.unicast.hosts: elasticsearch-masters
+        node.max_local_storage_nodes: '3'
+        node.master: 'false'
+        node.data: 'false'
+        node.ingest: 'true'
+      ulimits:
+        memlock:
+          hard: -1
+          soft: -1
+        nofile:
+          hard: 65536
+          soft: 65536
+      volumes_from:
+      - elasticdata-data
+      volumes:
+      - /usr/share/elasticsearch/config
+      #ports:
+      #- 9200:9200/tcp
+      labels:
+        io.rancher.container.hostname_override: container_name
+        io.rancher.sidekicks: elasticingest-data
+        io.rancher.scheduler.global: 'true'
+  elasticingest-data:
+        entrypoint:
+        - /bin/true
+        network_mode: none
+        labels:
+          io.rancher.container.hostname_override: container_name
+          io.rancher.container.start_once: true
+        volumes:
+        - /usr/share/elasticsearch/data
+        image: docker.elastic.co/elasticsearch/elasticsearch:5.3.0
 
 
