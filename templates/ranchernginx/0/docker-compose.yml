@@ -1,7 +1,7 @@
 version: '2'
 services:
   NginX4Rancher:
-    image: artifactory.devops.itaas-cloud.com:6443/docker-local/rancherlab-nginx/latest
+    image: artifactory.devops.itaas-cloud.com:6443/docker-local/rancherlab-nginx
     ports:
     - 80:80/tcp
     - 443:443/tcp
