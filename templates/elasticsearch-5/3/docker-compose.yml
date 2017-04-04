@@ -110,7 +110,7 @@ services:
           hard: 65536
           soft: 65536
       volumes_from:
-      - elasticdata-data
+      - elasticingest-data
       volumes:
       - /usr/share/elasticsearch/config
       #ports:
