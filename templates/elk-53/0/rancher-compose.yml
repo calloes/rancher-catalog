@@ -1,0 +1,6 @@
+.catalog:
+  name: "ELK 5.3"
+  version: "5.3"
+  description: "Elk Stack Elastic Search Kibana Logstash for Service Layer 3"
+  uuid: 
+
