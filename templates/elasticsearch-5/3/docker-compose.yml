@@ -134,7 +134,7 @@ services:
     volumes_from:
     - logstash-config
     links:
-    - elasticsearch-clients:elasticsearch
+    - elasticsearch-ingest:elasticsearch
     ports:
     - 5000:5000/tcp
     - 6000:6000/tcp
