@@ -129,5 +129,31 @@ services:
         volumes:
         - /usr/share/elasticsearch/data
         image: docker.elastic.co/elasticsearch/elasticsearch:5.3.0
-
+  logstash:
+    image: docker.elastic.co/logstash/logstash:5.3.0
+    volumes_from:
+    - logstash-config
+    links:
+    - elasticsearch-clients:elasticsearch
+    ports:
+    - 5000:5000/tcp
+    - 6000:6000/tcp
+    command:
+    - -f
+    - /etc/logstash/conf.d/
+    - --config.string
+    - input { udp { port => 5000 codec => "json" } tcp { port => 6000 codec => "json" } } output { elasticsearch { hosts => "elasticsearch:9200"} }
+    labels:
+      io.rancher.container.hostname_override: container_name
+      io.rancher.sidekicks: logstash-config
+  logstash-config:
+    entrypoint:
+    - /bin/true
+    network_mode: none
+    labels:
+      io.rancher.container.hostname_override: container_name
+      io.rancher.container.start_once: true
+    volumes:
+    - /etc/logstash/conf.d
+    image: alpine:3.4
 
