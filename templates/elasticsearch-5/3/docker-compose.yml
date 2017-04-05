@@ -29,8 +29,8 @@ services:
     - elasticmaster-data
     volumes:
     - /usr/share/elasticsearch/config
-    ports:
-    - 9200:9200/tcp
+    #ports:
+    #- 9200:9200/tcp
     labels:
       io.rancher.container.hostname_override: container_name
       io.rancher.sidekicks: elasticmaster-data
@@ -113,8 +113,8 @@ services:
       - elasticingest-data
       volumes:
       - /usr/share/elasticsearch/config
-      #ports:
-      #- 9200:9200/tcp
+      ports:
+      - 9200:9200/tcp
       labels:
         io.rancher.container.hostname_override: container_name
         io.rancher.sidekicks: elasticingest-data
