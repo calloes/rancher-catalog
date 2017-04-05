@@ -153,7 +153,20 @@ services:
       io.rancher.container.hostname_override: container_name
       io.rancher.container.start_once: true
     volumes:
-    - /usr/share/logstash/config/
-  #  - /usr/share/logstash/pipeline/
+    #- /usr/share/logstash/config/
+    - /usr/share/logstash/pipeline/
     image: artifactory.devops.itaas-cloud.com:6443/logstash-53-config
-
+  kibana:
+    image: docker.elastic.co/kibana/kibana:5.3.0
+    environment:
+      ELASTICSEARCH_URL: http://localhost:9200
+      SERVER_HOST: 0.0.0.0
+      SERVER_PORT: ${kibana_port}:5601
+    #volumes:
+    #- /etc/kibana/
+    links:
+    - elasticsearch-ingest:elasticsearch
+    ports:
+    - 5601:5601/tcp
+    labels:
+      io.rancher.container.hostname_override: container_name
