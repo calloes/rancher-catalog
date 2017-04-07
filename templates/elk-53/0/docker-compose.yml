@@ -9,7 +9,7 @@ services:
     - IPC_LOCK
     image: docker.elastic.co/elasticsearch/elasticsearch:5.3.0
     environment:
-      ES_JAVA_OPTS: $javamemory
+      ES_JAVA_OPTS: $javamastermemory
       bootstrap.memory_lock: 'true'
       cluster.name: docker-cluster
       discovery.zen.minimum_master_nodes: '1'
@@ -51,7 +51,7 @@ services:
       - IPC_LOCK
       image: docker.elastic.co/elasticsearch/elasticsearch:5.3.0
       environment:
-        ES_JAVA_OPTS: $javamemory
+        ES_JAVA_OPTS: $javadatamemory
         bootstrap.memory_lock: 'true'
         cluster.name: docker-cluster
         discovery.zen.minimum_master_nodes: '2'
@@ -93,7 +93,7 @@ services:
       - IPC_LOCK
       image: docker.elastic.co/elasticsearch/elasticsearch:5.3.0
       environment:
-        ES_JAVA_OPTS: $java-memory
+        ES_JAVA_OPTS: $javaingestmemory
         bootstrap.memory_lock: 'true'
         cluster.name: docker-cluster
         discovery.zen.minimum_master_nodes: '2'
