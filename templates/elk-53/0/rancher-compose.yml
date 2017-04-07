@@ -11,6 +11,6 @@
      default: "-Xms512m -Xmx512m"
      type: enum
      options:
-     - "-Xms512m -Xmx512m""
+     - "-Xms512m -Xmx512m"
      - "-Xms16g -Xmx16g" 
 
