@@ -17,30 +17,30 @@
      - "-Xms4g -Xmx4g"
      - "-Xms8g -Xmx8g"
      - "-Xms16g -Xmx16g"
-  - variable: "javadatamemory"
-     description: "Amount of Java memeory to commit to the Data Nodes"
-     label: "Java Data Nodes Memory"
-     required: true
-     default: "-Xms512m -Xmx512m"
-     type: enum
-     options:
-     - "-Xms512m -Xmx512m"
-     - "-Xms1g -Xmx1g"
-     - "-Xms2g -Xmx2g"
-     - "-Xms4g -Xmx4g"
-     - "-Xms8g -Xmx8g"
-     - "-Xms16g -Xmx16g"
-  - variable: "javaingestmemory"
-     description: "Amount of Java memory to commit to the Ingest Nodes"
-     label: "Java Ingest Nodes Memory"
-     required: true
-     default: "-Xms512m -Xmx512m"
-     type: enum
-     options:
-     - "-Xms512m -Xmx512m"
-     - "-Xms1g -Xmx1g"
-     - "-Xms2g -Xmx2g"
-     - "-Xms4g -Xmx4g"
-     - "-Xms8g -Xmx8g"
-     - "-Xms16g -Xmx16g"
+ # - variable: "javadatamemory"
+ #    description: "Amount of Java memeory to commit to the Data Nodes"
+ #    label: "Java Data Nodes Memory"
+ #    required: true
+ #    default: "-Xms512m -Xmx512m"
+ #    type: enum
+ #    options:
+ #    - "-Xms512m -Xmx512m"
+ #    - "-Xms1g -Xmx1g"
+ #    - "-Xms2g -Xmx2g"
+ #    - "-Xms4g -Xmx4g"
+ #    - "-Xms8g -Xmx8g"
+ #    - "-Xms16g -Xmx16g"
+ # - variable: "javaingestmemory"
+ #    description: "Amount of Java memory to commit to the Ingest Nodes"
+ #    label: "Java Ingest Nodes Memory"
+ #    required: true
+ #    default: "-Xms512m -Xmx512m"
+ #    type: enum
+ #    options:
+ #    - "-Xms512m -Xmx512m"
+ #    - "-Xms1g -Xmx1g"
+ #    - "-Xms2g -Xmx2g"
+ #    - "-Xms4g -Xmx4g"
+ #    - "-Xms8g -Xmx8g"
+ #    - "-Xms16g -Xmx16g"
 
