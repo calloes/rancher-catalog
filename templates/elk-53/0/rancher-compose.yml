@@ -2,5 +2,15 @@
   name: "ELK 5.3"
   version: "5.3"
   description: "Elk Stack Elastic Search Kibana Logstash for Service Layer 3"
-  uuid: 
+  uuid:
+  questions:
+   - variable: "java-memory"
+     description: "Amount of Java memeory to commit"
+     label: "Java Memeory"
+     required: true
+     default: "-Xms512m -Xmx512m"
+     type: enum
+     options:
+     - "-Xms512m -Xmx512m""
+     - "-Xms16g -Xmx16g" 
 
