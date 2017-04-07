@@ -4,7 +4,7 @@
   description: "Elk Stack Elastic Search Kibana Logstash for Service Layer 3"
   uuid:
   questions:
-   - variable: "java-memory"
+   - variable: "javamemory"
      description: "Amount of Java memeory to commit"
      label: "Java Memeory"
      required: true
