@@ -6,7 +6,7 @@
   questions:
    - variable: "javamastermemory"
      description: "Amount of Java memeory to commit to the Master Nodes"
-     label: "Java Memeory"
+     label: "Java MasterNodes Memory"
      required: true
      default: "-Xms512m -Xmx512m"
      type: enum
@@ -19,7 +19,7 @@
      - "-Xms16g -Xmx16g"
   - variable: "javadatamemory"
      description: "Amount of Java memeory to commit to the Data Nodes"
-     label: "Java Memeory"
+     label: "Java Data Nodes Memory"
      required: true
      default: "-Xms512m -Xmx512m"
      type: enum
@@ -32,7 +32,7 @@
      - "-Xms16g -Xmx16g"
   - variable: "javaingestmemory"
      description: "Amount of Java memory to commit to the Ingest Nodes"
-     label: "Java Memeory"
+     label: "Java Ingest Nodes Memory"
      required: true
      default: "-Xms512m -Xmx512m"
      type: enum
