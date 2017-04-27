@@ -12,6 +12,8 @@ services:
       - /opt/rancher/bin/start_consul.sh
     labels:
       io.rancher.container.hostname_override: container_name
+      io.rancher.sidekicks: consul-data
+      io.rancher.scheduler.global: 'true'
     volumes_from:
       - consul-data
   consul-data:
