@@ -1,5 +1,4 @@
-name: Consul Cluster
-description: |
-  Consul cluster
-version: 0.8-rancher1
+name: Consul Cluster for Rancher and Service Layer
+description: Consul cluster
+version: 0.1-rancherlab
 category: Clustering
