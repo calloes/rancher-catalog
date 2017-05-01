@@ -2,6 +2,8 @@ version: '2'
 services:
   consul-base:
     image: consul:0.8.1
+    environment:
+      ES_JAVA_OPTS: -Xms512m -Xmx512m
     ports:
       - 8500:8500/tcp
       - 53:8600/udp
@@ -13,6 +15,7 @@ services:
     labels:
       io.rancher.container.hostname_override: container_name
       io.rancher.sidekicks: consul-data
+      io.rancher.sidekicks: consul-config
       io.rancher.scheduler.global: 'true'
     volumes_from:
       - consul-data
@@ -25,11 +28,11 @@ services:
       io.rancher.container.start_once: true
     volumes:
       - /consul/data
-  #consul:
-  #  image: 
-  #  labels:
-  #    io.rancher.container.hostname_override: container_name
-  #    io.rancher.sidekicks: consul-base,consul-data
-  #  volumes_from:
-  #    - consul-data
-  #{
+  consul-config:
+    image: 
+    labels:
+      io.rancher.container.hostname_override: container_name
+      io.rancher.sidekicks: consul-base,consul-data
+    volumes:
+      - /consul/config
+  

@@ -1,5 +1,0 @@
-name: Consul Cluster for Rancher and Service Layer
-description: |
-    Consul cluster
-version: 1.0
-category: Clustering
