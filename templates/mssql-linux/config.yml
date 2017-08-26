@@ -1,8 +1,8 @@
-name: NginX for Rancher 1.0
+name: Microsoft SQL 2017 Linux    
 description: |
-  NginX for Rancher Server
+  Microsoft SQL Docker
 version: 1.0.0.0
-category: NginX
+category: Docker
 maintainer: "Chris Callanan calloes@gmail.com"
 minimum_rancher_version: v1.2.3
 projectURL: https://rancherlab.itaas-cloud.com
