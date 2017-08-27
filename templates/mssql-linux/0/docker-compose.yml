@@ -1,8 +1,4 @@
 version: '2'
-volumes:
-  sql_data_volume:
-    external: true
-    driver: rancher-nfs
 services:
   sqlserver:
     image: microsoft/mssql-server-linux
@@ -23,7 +19,7 @@ services:
     image: microsoft/mssql-server-linux
     stdin_open: true
     volumes:
-    - sql_data_volume:/var/opt/mssql/data
+    - var/opt/mssql/data
     tty: true
     labels:
       io.rancher.container.pull_image: always
