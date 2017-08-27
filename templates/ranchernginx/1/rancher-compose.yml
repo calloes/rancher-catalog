@@ -1,0 +1,5 @@
+.catalog:
+  name: "NginX4Rancher"
+  version: "1"
+  description: "NginX Build for Rancher"
+  uuid: nginx-1.0
