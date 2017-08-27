@@ -1,7 +1,7 @@
 name: NginX for Rancher 1.0
 description: |
   NginX for Rancher Server
-version: 1.0.0.0
+version: 1.0.0.1
 category: NginX
 maintainer: "Chris Callanan calloes@gmail.com"
 minimum_rancher_version: v1.2.3
