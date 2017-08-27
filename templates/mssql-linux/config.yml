@@ -2,7 +2,7 @@ name: Microsoft SQL 2017 Linux
 description: |
   Microsoft SQL Docker
 version: 1.0.0.0
-category: Docker
+category: Database
 maintainer: "Chris Callanan calloes@gmail.com"
 minimum_rancher_version: v1.2.3
 projectURL: https://rancherlab.itaas-cloud.com

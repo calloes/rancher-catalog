@@ -23,7 +23,7 @@ services:
     image: microsoft/mssql-server-linux
     stdin_open: true
     volumes:
-    - sql_data_volume:/var/opt/mssql
+    - sql_data_volume:/var/opt/mssql/data
     tty: true
     labels:
       io.rancher.container.pull_image: always
