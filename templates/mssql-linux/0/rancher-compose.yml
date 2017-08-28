@@ -7,9 +7,9 @@
 
 version: '2'
 services:
-  sqlserver:
+  sql-server:
     scale: 1
     start_on_create: true
-  sqldata:
+  sql-data:
     scale: 1
     start_on_create: true
