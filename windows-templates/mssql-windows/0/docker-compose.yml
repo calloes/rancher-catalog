@@ -1,0 +1,10 @@
+version: '2'
+services:
+  sql-server:
+    image: microsoft/microsoft/mssql-server-windows
+    environment:
+      ACCEPT_EULA: Y
+      MSSQL_SA_PASSWORD: DevAdmin123
+      MSSQL_PID: Developer
+    ports:
+    - 1433:1433/tcp

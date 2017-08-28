@@ -1,0 +1,15 @@
+.catalog:
+  name: "Microsoft SQL on Linux"
+  version: "1.0"
+  description: "Microsoft SQL on Linux"
+  uuid:
+  questions:
+
+version: '2'
+services:
+  sql-server:
+    scale: 1
+    start_on_create: true
+  sql-data:
+    scale: 1
+    start_on_create: true
