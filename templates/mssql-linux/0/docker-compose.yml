@@ -16,7 +16,7 @@ services:
         io.rancher.container.hostname_override: container_name
         io.rancher.container.start_once: true
     volumes:
-    - sql-server-data:/Documents
+    - sql-server-data:/var/opt/mssql/data
   sql-server:
     image: microsoft/mssql-server-linux
     environment:
