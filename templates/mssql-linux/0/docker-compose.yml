@@ -8,11 +8,8 @@ services:
       io.rancher.container.hostname_override: container_name
       io.rancher.container.start_once: true
     network_mode: none
-    labels:
-        io.rancher.container.hostname_override: container_name
-        io.rancher.container.start_once: true
     volumes:
-    - /var/opt/mssql/data
+    - /var/opt/mssql
   sql-server:
     image: microsoft/mssql-server-linux
     environment:
