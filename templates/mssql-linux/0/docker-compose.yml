@@ -7,7 +7,7 @@ services:
   sql-data:
     environment:
       ACCEPT_EULA: Y
-    image: microsoft/mssql-server-linux:latest
+    image: microsoft/mssql-server-linux
     network_mode: none
     labels:
         io.rancher.container.hostname_override: container_name
@@ -15,7 +15,7 @@ services:
     volumes:
     - sql-server-data:/Documents
   sql-server:
-    image: microsoft/mssql-server-linux:latest
+    image: microsoft/mssql-server-linux
     environment:
       ACCEPT_EULA: Y
       MSSQL_SA_PASSWORD: DevAdmin123
