@@ -21,8 +21,5 @@ services:
     - sql-data
     ports:
     - 1433:1433/tcp
-    command:
-    - --cap-add
-    - SYS_PTRACE
     labels:
       io.rancher.sidekicks: sql-data
