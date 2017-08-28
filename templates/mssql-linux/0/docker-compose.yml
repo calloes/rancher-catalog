@@ -5,9 +5,12 @@ volumes:
     driver: rancher-nfs
 services:
   sql-data:
-    environment:
-      ACCEPT_EULA: Y
-    image: microsoft/mssql-server-linux
+    image: alpine:latest
+    entrypoint:
+      - /bin/true
+    labels:
+      io.rancher.container.hostname_override: container_name
+      io.rancher.container.start_once: true
     network_mode: none
     labels:
         io.rancher.container.hostname_override: container_name
