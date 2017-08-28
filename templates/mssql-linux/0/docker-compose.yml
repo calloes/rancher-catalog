@@ -16,4 +16,5 @@ services:
     - sql-server-data:/var/opt/mssql/data
     ports:
     - 1433:1433/tcp
-    
+    labels:
+      io.rancher.sidekicks: sql-data
