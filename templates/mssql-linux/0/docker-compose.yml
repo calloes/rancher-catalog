@@ -1,26 +1,28 @@
 version: '2'
+volumes:
+  sql-server-data:
+    external: true
+    driver: rancher-nfs
 services:
-  sqlserver:
-    image: microsoft/mssql-server-linux
+  sql-data:
+    image: microsoft/mssql-server-linux:latest
+    stdin_open: true
+    volumes:
+    - sql-server-data:/Documents
+  sql-server:
+    image: microsoft/mssql-server-linux:latest
     environment:
       ACCEPT_EULA: Y
-      SA_PASSWORD: DevAdmin123
+      MSSQL_SA_PASSWORD: DevAdmin123
       MSSQL_PID: Developer
     stdin_open: true
     tty: true
     volumes_from:
-    - sqldata
+    - sql-data
     ports:
     - 1433:1433/tcp
+    command:
+    - --cap-add
+    - SYS_PTRACE
     labels:
-      io.rancher.container.pull_image: always
-      io.rancher.sidekicks: sqldata
-  sqldata:
-    image: microsoft/mssql-server-linux
-    stdin_open: true
-    volumes:
-    - var/opt/mssql/data
-    tty: true
-    labels:
-      io.rancher.container.pull_image: always
-      io.rancher.container.start_once: 'true'
+      io.rancher.sidekicks: sql-data
