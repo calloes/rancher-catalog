@@ -1,4 +1,4 @@
-name: Microsoft SQL 2017 Linux    
+name: Microsoft SQL Windows  
 description: Microsoft SQL Docker
 version: 1.0.0.1
 category: Database
