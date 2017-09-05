@@ -1,4 +1,4 @@
-name: Elasticsearch Cluster 5.5.3
+name: Elasticsearch Cluster 5.5.2
 description: |
   Elasticsearch, you know for search!
 version: 5.5.2-rancher1
