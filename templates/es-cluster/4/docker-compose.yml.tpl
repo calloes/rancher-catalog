@@ -82,7 +82,7 @@ services:
             - "bootstrap.memory_lock=true"
             - "xpack.security.enabled=false"
             - "discovery.zen.ping.unicast.hosts=es-master"
-            - "ES_JAVA_OPTS=-Xms${client_heap_size} -Xmx${client_heap_size}"
+            - "ES_JAVA_OPTS=-Xms${ingest_heap_size} -Xmx${ingest_heap_size}"
             - "node.master=false"
             - "node.data=false"
         ulimits:
