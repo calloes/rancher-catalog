@@ -128,5 +128,5 @@ services:
   es-data:
     scale: ${initial_data_nodes}
 
-  es-client:
+  es-ingest:
     scale: ${initial_ingest_nodes}
