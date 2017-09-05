@@ -1,4 +1,4 @@
-name: ELK Stack 53  
+name: ELK Stack 5.x  
 description: Elastic Search Kibana and Logstash
   Elasticsearch, you know for search!
 version: 1.0.0.0
