@@ -45,6 +45,13 @@ catalog:
           description: "Memory limit in Byte per elasticsearch container. AT LEAST double the heap size! (master nodes)"
           default: 1073741824
 
+
+
+
+
+
+
+
         - variable: "data_heap_size"
           required: true
           label: "Heap size (data nodes)"
