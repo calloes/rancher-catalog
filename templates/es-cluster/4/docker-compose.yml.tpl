@@ -92,7 +92,7 @@ services:
             nofile:
                 soft: 65536
                 hard: 65536
-        mem_limit: ${client_mem_limit}
+        mem_limit: ${ingest_mem_limit}
         mem_swappiness: 0
         cap_add:
             - IPC_LOCK
