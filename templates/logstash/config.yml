@@ -1,4 +1,4 @@
-name: Logstash
+name: Logstash 5.5.2
 description: |
   Centralize data processing of all types
 version: 5.5.2-rancher1
