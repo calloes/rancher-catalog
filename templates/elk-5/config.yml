@@ -1,8 +1,0 @@
-name: ELK Stack 5.x  
-description: Elastic Search Kibana and Logstash
-  Elasticsearch, you know for search!
-version: 1.0.0.0
-category: ELK
-maintainer: "Chris Callanan calloes@gmail.com"
-minimum_rancher_version: v1.2.3
-projectURL: https://github.com/calloes/rancher-catalog
