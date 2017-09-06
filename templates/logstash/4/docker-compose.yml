@@ -47,7 +47,7 @@ logstash-collector:
   - logstash
   - -f
   - /etc/logstash
-  image: logstash:5.1.1-alpine
+  image: docker.elastic.co/logstash/logstash:5.5.2
   stdin_open: true
   labels:
     io.rancher.sidekicks: logstash-collector-config
