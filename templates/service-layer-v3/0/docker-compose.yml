@@ -1,0 +1,8 @@
+version: '2'
+services:
+  splunk-main:
+    image: splunk/splunk:latest
+    environment:
+      ELASTIC_HOST: http://elasticsearch:8200
+    labels:
+      io.rancher.container.pull_image: always
