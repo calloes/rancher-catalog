@@ -1,7 +1,7 @@
 version: '2'
 services:
   splunk-main:
-    image: splunk/splunk:latest
+    image: artifactory.devops.itaas-cloud.com:6553/nginx-consultemplate:latest
     environment:
       ELASTIC_HOST: http://elasticsearch:8200
     labels:
