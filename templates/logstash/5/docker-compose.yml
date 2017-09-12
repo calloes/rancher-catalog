@@ -1,6 +1,6 @@
 logstash-indexer-config:
   restart: always
-  image: artifactory.devops.itaas-cloud.com:6553/elk-config:latest
+  image: artifactory.devops.itaas-cloud.com:6553/logstash-config:latest
   labels:
     io.rancher.container.hostname_override: container_name
 redis:
@@ -30,7 +30,7 @@ logstash-indexer:
     io.rancher.container.hostname_override: container_name
 logstash-collector-config:
   restart: always
-  image: artifactory.devops.itaas-cloud.com:6553/elk-config:latest
+  image: artifactory.devops.itaas-cloud.com:6553/logstash-config:latest
   labels:
     io.rancher.container.hostname_override: container_name
 logstash-collector:
