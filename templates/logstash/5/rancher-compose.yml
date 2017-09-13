@@ -1,6 +1,6 @@
 .catalog:
   name: "Logstash"
-  version: "5.5.2-DD-SL3"
+  version: "5.5.2.1-DD-SL3"
   description: "Logstash: Process Any Data, From Any Source"
   questions:
     - variable: "collector_inputs"

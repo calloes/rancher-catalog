@@ -16,6 +16,8 @@ logstash-indexer:
   tty: true
   volumes_from:
   - logstash-indexer-config
+  environment:
+    path.config: /etc/logstash/conf.d
   command:
   - logstash
   - -f
@@ -37,6 +39,8 @@ logstash-collector-config:
     io.rancher.container.pull_image: always
 logstash-collector:
   restart: always
+  environment:
+    path.config: /etc/logstash/conf.d
   tty: true
   links:
   - redis:redis
