@@ -2,7 +2,7 @@ logstash-config:
   restart: always
   image: artifactory.devops.itaas-cloud.com:6553/logstash-config:latest
   volumes:
-   - /usr/share/logstash/config/
+   - /usr/share/logstash/config/conf.d
   labels:
     io.rancher.container.hostname_override: container_name
     io.rancher.container.pull_image: always
