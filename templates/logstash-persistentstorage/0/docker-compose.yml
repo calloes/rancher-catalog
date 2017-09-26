@@ -12,9 +12,9 @@ logstash:
   environment:
     path.data: /usr/share/logstash/data
     path.config: /usr/share/logstash/config/conf.d
-    PIPELINE_WORKERS: pipeline.workers
-    LOG_LEVEL: log.level
-    XPACK_MONITORING_ENABLED: xpack.monitoring.enabled
+    pipeline.workers: 1
+    log.level: info
+    xpack.monitoring.enabled: true
     queue.type: persisted
     queue.max_bytes: 4gb
   tty: true
