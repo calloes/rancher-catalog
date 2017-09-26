@@ -1,0 +1,39 @@
+logstash-config:
+  restart: always
+  image: artifactory.devops.itaas-cloud.com:6553/logstash-config:latest
+  volume:
+   - /usr/share/logstash/config/
+  labels:
+    io.rancher.container.hostname_override: container_name
+    io.rancher.container.pull_image: always
+logstash:
+  restart: always
+  environment:
+    path.data: /usr/share/logstash/data
+    path.config: /usr/share/logstash/config/conf.d
+    PIPELINE_WORKERS: pipeline.workers
+    LOG_LEVEL: log.level
+    XPACK_MONITORING_ENABLED: xpack.monitoring.enabled
+    queue.type: persisted
+    queue.max_bytes: 4gb
+  tty: true
+  external_links:
+  - ${elasticsearch_link}:elasticsearch
+  ports:
+  - 9600:9600
+  - 5044:5044
+  volumes_from:
+  - logstash-config
+  image: docker.elastic.co/logstash/logstash:5.5.2
+  stdin_open: true
+  labels:
+    io.rancher.sidekicks: logstash-config,logstash-data
+    io.rancher.container.hostname_override: container_name
+logstash-data:
+  restart: always
+  image: alpine:latest
+  volume:
+    - /usr/share/logstash/data
+  labels:
+    io.rancher.container.hostname_override: container_name
+    io.rancher.container.pull_image: always
