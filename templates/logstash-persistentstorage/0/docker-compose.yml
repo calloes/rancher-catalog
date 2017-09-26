@@ -1,7 +1,7 @@
 logstash-config:
   restart: always
   image: artifactory.devops.itaas-cloud.com:6553/logstash-config:latest
-  volume:
+  volumes:
    - /usr/share/logstash/config/
   labels:
     io.rancher.container.hostname_override: container_name
@@ -33,7 +33,7 @@ logstash:
 logstash-data:
   restart: always
   image: alpine:latest
-  volume:
+  volumes:
     - /usr/share/logstash/data
   entrypoint:
     - /bin/true
