@@ -17,6 +17,8 @@ logstash:
     xpack.monitoring.enabled: true
     queue.type: persisted
     queue.max_bytes: 4gb
+    xpack.monitoring.elasticsearch.url: http://es-ingest.escluster:9200
+    ES_HOST: es-ingest.es-cluster
   tty: true
   external_links:
   - ${elasticsearch_link}:elasticsearch
@@ -25,6 +27,7 @@ logstash:
   - 5044:5044
   volumes_from:
   - logstash-config
+  - logstash-data
   image: docker.elastic.co/logstash/logstash:5.5.2
   stdin_open: true
   labels:
