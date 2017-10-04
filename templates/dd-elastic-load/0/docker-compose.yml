@@ -4,7 +4,7 @@ services:
     image: artifactory.devops.itaas-cloud.com:6553/elk-config:latest
     stdin_open: true
     environment:
-      ELASTIC_HOST: es-ingest.es-cluster:9200
+      ELASTIC_HOST: es-master.es-cluster:9200
     tty: true
     labels:
       io.rancher.container.hostname_override: container_name
