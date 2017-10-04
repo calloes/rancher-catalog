@@ -24,21 +24,21 @@
       default: "unix:///var/run/docker.sock"
     - variable: "logstash_url"
       description: "Logstash"
-      label: "logstash"
+      label: "logstash needs to be ["localhost:5044"] "
       type: "string"
       required: true
-      default: "["localhost:5044"]"
+      default: ""
     - variable: "logstash_workers"
       description: "logstash_workers"
       label: "logstash_workers"
       type: "string"
-      required: true
+      required: false
       default: "1"
     - variable: "logstash_compression"
       description: "logstash_compression"
       label: "logstash_compression"
       type: "string"
-      required: true
+      required: false
       default: "3"
 
 
