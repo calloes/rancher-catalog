@@ -4,7 +4,7 @@ services:
     restart: always
     image: artifactory.devops.itaas-cloud.com:6553/dockbeat_config:latest
     volumes:
-     - /etc/docbeat
+     - /etc/dockbeat
     labels:
       io.rancher.container.hostname_override: container_name
       io.rancher.container.pull_image: always
