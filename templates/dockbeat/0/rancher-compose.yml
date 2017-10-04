@@ -27,19 +27,19 @@
       label: "logstash"
       type: "string"
       required: true
-      default: "false"
+      default: "["localhost:5044"]"
     - variable: "logstash_workers"
       description: "logstash_workers"
       label: "logstash_workers"
       type: "string"
       required: true
-      default: "false"
+      default: "1"
     - variable: "logstash_compression"
       description: "logstash_compression"
       label: "logstash_compression"
       type: "string"
       required: true
-      default: "false"
+      default: "3"
 
 
     # - variable: "input_tls_enable"
