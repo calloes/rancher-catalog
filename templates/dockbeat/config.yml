@@ -1,5 +1,5 @@
-name: dd-elastic-load   
-description: Dimension Data Research Elastic Loads
+name: dockbeat
+description: Dimension Data Research DockBeat for Rancher
 version: 1.0.0.1
 category: Elastic
 maintainer: "Chris Callanan calloes@gmail.com"
