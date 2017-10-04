@@ -22,27 +22,24 @@
       type: "string"
       required: true
       default: "unix:///var/run/docker.sock"
-    
-    #Logstash Stuff
-    
-    - variable: "logstash"
-       description: "Logstash"
-       label: "logstash"
-       type: "string"
-       required: true
-       default: "false"
+    - variable: "logstash_url"
+      description: "Logstash"
+      label: "logstash"
+      type: "string"
+      required: true
+      default: "false"
     - variable: "logstash_workers"
-       description: "logstash_workers"
-       label: "logstash_workers"
-       type: "string"
-       required: true
-       default: "false"
+      description: "logstash_workers"
+      label: "logstash_workers"
+      type: "string"
+      required: true
+      default: "false"
     - variable: "logstash_compression"
-       description: "logstash_compression"
-       label: "logstash_compression"
-       type: "string"
-       required: true
-       default: "false"
+      description: "logstash_compression"
+      label: "logstash_compression"
+      type: "string"
+      required: true
+      default: "false"
 
 
     # - variable: "input_tls_enable"

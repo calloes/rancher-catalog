@@ -15,7 +15,7 @@ services:
     environment:
       PERIOD: ${input_period}
       DOCKER_SOCKET: ${input_socket}
-      LOGSTASH: ${logstash}
+      LOGSTASH: ${logstash_url}
       LOGSTASH_WORKERS: ${logstash_workers}
       LOGSTASH_COMPRESSIONS: ${logstash_compression}
 
