@@ -24,7 +24,7 @@
       default: "unix:///var/run/docker.sock"
     - variable: "logstash_url"
       description: "Logstash"
-      label: "logstash needs to be ["localhost:5044"] "
+      label: "logstash needs to be localhost:5044"
       type: "string"
       required: true
       default: "urlstring"
