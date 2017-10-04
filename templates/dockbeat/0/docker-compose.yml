@@ -31,7 +31,7 @@ services:
     volumes_from:
     - dockbeat-config
     labels:
-      io.rancher.sidekicks: docbeat-config
+      io.rancher.sidekicks: dockbeat-config
       io.rancher.container.hostname_override: container_name
       io.rancher.container.pull_image: always
       io.rancher.scheduler.global: 'true'
