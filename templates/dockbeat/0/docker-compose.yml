@@ -1,21 +1,37 @@
 version: '2'
 services:
+  dockbeat-config:
+    restart: always
+    image: artifactory.devops.itaas-cloud.com:6553/dockbeat_config:latest
+    volumes:
+     - /etc/docbeat
+    labels:
+      io.rancher.container.hostname_override: container_name
+      io.rancher.container.pull_image: always
+      io.rancher.container.start_once: true
   dockbeat:
     image: ingensi/dockbeat
     stdin_open: true
     environment:
       PERIOD: ${input_period}
       DOCKER_SOCKET: ${input_socket}
-      DOCKER_ENABLE_TLS: ${input_tls_enable}
-      DOCKER_CA_PATH: ${input_tls_ca_path}
-      DOCKER_CERT_PATH: ${input_tls_cert_path}
-      DOCKER_KEY_PATH: ${input_tls_key_path}
+      LOGSTASH: ${logstash}
+      LOGSTASH_WORKERS: ${logstash_workers}
+      LOGSTASH_COMPRESSIONS: ${logstash_compression}
+
+      #DOCKER_ENABLE_TLS: ${input_tls_enable}
+      #DOCKER_CA_PATH: ${input_tls_ca_path}
+      #DOCKER_CERT_PATH: ${input_tls_cert_path}
+      #DOCKER_KEY_PATH: ${input_tls_key_path}
     external_links:
-    - ${elasticsearch_source}:elasticsearch
+    - ${logstash_source}
     tty: true
     volumes:
     - /var/run/docker.sock:/var/run/docker.sock
+    volumes_from:
+    - dockbeat-config
     labels:
+      io.rancher.sidekicks: docbeat_config
       io.rancher.container.hostname_override: container_name
       io.rancher.container.pull_image: always
       io.rancher.scheduler.global: 'true'
