@@ -1,0 +1,22 @@
+version: '2'
+services:
+  dockbeat:
+    image: ingensi/dockbeat
+    stdin_open: true
+    environment:
+      PERIOD: ${input.period}
+      DOCKER_SOCKET: ${input.socket}
+      DOCKER_ENABLE_TLS: ${input.tls.enable}
+      DOCKER_CA_PATH: ${input.tls.ca_path}
+      DOCKER_CERT_PATH: ${input.tls.cert_path}
+      DOCKER_KEY_PATH: ${input.tls.key_path}
+    external_links:
+    - ${elasticsearch_source}:elasticsearch
+    tty: true
+    volumes:
+      /var/run/docker.sock:/var/run/docker.sock
+    labels:
+      io.rancher.container.hostname_override: container_name
+      io.rancher.container.pull_image: always
+      io.rancher.scheduler.global: 'true'
+      
