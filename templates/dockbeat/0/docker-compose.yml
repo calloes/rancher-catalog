@@ -9,7 +9,7 @@ services:
       DOCKER_ENABLE_TLS: ${input.tls.enable}
       DOCKER_CA_PATH: ${input.tls.ca_path}
       DOCKER_CERT_PATH: ${input.tls.cert_path}
-      DOCKER_KEY_PATH: ${input.tls.key_path}
+     # DOCKER_KEY_PATH: ${input.tls.key_path}
     external_links:
     - ${elasticsearch_source}:elasticsearch
     tty: true
