@@ -27,7 +27,7 @@
       label: "logstash needs to be ["localhost:5044"] "
       type: "string"
       required: true
-      default: ""
+      default: "urlstring"
     - variable: "logstash_workers"
       description: "logstash_workers"
       label: "logstash_workers"
