@@ -10,7 +10,7 @@
       type: "service"
       required: true
       default: ""
-    - variable: "input.period"
+    - variable: "input_period"
       description: "How often to send data"
       label: "input.period"
       type: "string"
