@@ -4,8 +4,9 @@ services:
     image: artifactory.devops.itaas-cloud.com:6553/elk-config:latest
     stdin_open: true
     environment:
-      ELASTIC_HOST: es-master.es-cluster:9200
-      ELASTIC_HOST_HTTP: http://es-master.es-cluster:9200
+      ELASTIC_HOST: ${elastic_host}
+      ELASTIC_HOST_HTTP: ${elastic_host_http}
+      BEATS_PACKAGES: ${beats_packages}
     tty: true
     labels:
       io.rancher.container.hostname_override: container_name
