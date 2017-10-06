@@ -1,6 +1,6 @@
 version: '2'
 services:
-  metrixbeat-config:
+  metricbeat-config:
     restart: always
     image: artifactory.devops.itaas-cloud.com:6553/metricbeat_config:latest
     volumes:
