@@ -1,7 +1,7 @@
 version: '2'
 services:
   metricbeat:
-    image: artifactory.devops.itaas-cloud.com:6553/metricbeat_config:latest
+    image: artifactory.devops.itaas-cloud.com:6553/metricbeat:latest
     stdin_open: true
     #net: "host"
     environment:
