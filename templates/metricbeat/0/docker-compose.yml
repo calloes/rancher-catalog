@@ -1,16 +1,7 @@
 version: '2'
 services:
-  metricbeat-config:
-    restart: always
-    image: artifactory.devops.itaas-cloud.com:6553/metricbeat_config:latest
-    volumes:
-     - /usr/share/metricbeat/metricbeat.yml
-    labels:
-      io.rancher.container.hostname_override: container_name
-      io.rancher.container.pull_image: always
-      io.rancher.container.start_once: true
   metricbeat:
-    image: docker.elastic.co/beats/metricbeat:5.6.2
+    image: artifactory.devops.itaas-cloud.com:6553/metricbeat_config:latest
     stdin_open: true
     #net: "host"
     environment:
@@ -33,10 +24,7 @@ services:
     - /sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro
     - /var/run/docker.sock:/var/run/docker.sock
     - /:/hostfs:ro
-    volumes_from:
-    - metricbeat-config
     labels:
-      io.rancher.sidekicks: metricbeat-config
       io.rancher.container.hostname_override: container_name
       io.rancher.container.pull_image: always
       io.rancher.scheduler.global: 'true'
