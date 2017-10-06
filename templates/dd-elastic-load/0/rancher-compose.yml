@@ -5,20 +5,20 @@
   uuid:
   questions:
     - variable: "beats_packages"
-    description: "( filebeat winlogbeat metricbeat )"
-    label: "Beats Packages to Load"
-    type: "string"
-    required: true
-    default: "( filebeat winlogbeat metricbeat )"
+      description: "( filebeat winlogbeat metricbeat )"
+      label: "Beats Packages to Load"
+      type: "string"
+      required: true
+      default: "( filebeat winlogbeat metricbeat )"
     - variable: "elastic_host"
-    description: "elastic masters to load to"
-    label: "elastic masters to load to"
-    type: "string"
-    required: true
-    default: "es-master.es-cluster:9200"
+      description: "elastic masters to load to"
+      label: "elastic masters to load to"
+      type: "string"
+      required: true
+      default: "es-master.es-cluster:9200"
     - variable: "elastic_host_http"
-    description: "elastic masters to load to full url"
-    label: ""elastic masters to load to"
-    type: "string"
-    required: true
-    default: "http://es-master.es-cluster:9200"
+      description: "elastic masters to load to full url"
+      label: ""elastic masters to load to"
+      type: "string"
+      required: true
+      default: "http://es-master.es-cluster:9200"
