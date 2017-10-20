@@ -3,8 +3,6 @@ services:
   oms-agent:
     image: microsoft/oms
     privileged: true
-    entrypoint:
-      - /bin/true
     labels:
       io.rancher.container.hostname_override: container_name
       io.rancher.scheduler.global: 'true'
