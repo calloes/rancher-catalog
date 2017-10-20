@@ -1,0 +1,20 @@
+version: '2'
+services:
+  oms-agent:
+    image: microsoft/oms
+    privileged: true
+    entrypoint:
+      - /bin/true
+    labels:
+      io.rancher.container.hostname_override: container_name
+      io.rancher.scheduler.global: 'true'
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    - /var/log:/var/log
+    environment:
+      WSID: ${workspace_id}
+      KEY: ${workspace_key}
+    ports:
+    - 25225:25225
+    - 25224:25224/udp
+   

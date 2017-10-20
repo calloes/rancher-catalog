@@ -1,0 +1,7 @@
+name: Microsoft OMS Docker for Linux    
+description: Microsoft OMS Docker for Linux
+version: 1.0.0.1
+category: Monitoring
+maintainer: "Chris Callanan calloes@gmail.com"
+minimum_rancher_version: v1.2.3
+projectURL: https://rancherlab.itaas-cloud.com

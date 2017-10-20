@@ -1,0 +1,18 @@
+.catalog:
+  name: "Microsoft OMS Docker for Linux"
+  version: "1.0"
+  description: "Microsoft OMS Docker for Linux"
+  uuid:
+  questions:
+    - variable: "workspace_id"
+      description: "OMS Workspace ID"
+      label: "OMS Workspace ID"
+      type: "string"
+      required: true
+      default: "Your work space Key"
+    - variable: "workspace_key"
+      description: "OMS Workspace Key"
+      label: "OMS Workspace Key"
+      type: "string"
+      required: true
+      default: "Your work space Key"
